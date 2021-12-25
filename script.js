@@ -1,23 +1,57 @@
 // Assignment Code
-// var generateBtn = document.querySelector("#generate");
 
-// // Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword(){;
+var generateBtn = document.querySelector("#generate");
+
+document.getElementById("generate").addEventListener("click", generatePassword());
+
 //   var passwordText = document.querySelector("#password");
 
 //   passwordText.value = password;
 
 // }
 
-document.getElementById("generate").addEventListener("click", prompts() {
-};
+// Add event listener to generate button//
+
+// // Write password to the #password input
+// function writePassword() {
+var password = generatePassword()
 
 function generatePassword() {
+    var getLowerCase = confirm("Would you like to use lower case letters?");
+if (getLowerCase) {
+    passwordLetters = passwordLetters.concat(4)
 }
+else {
+    passwordLetters = 0;
+} 
+
+var getUpperCase = confirm("Would you like to use upper case letters?");
+if (getUpperCase){
+    passwordLetters = passwordLetters.concat(5)
+}
+else {
+    passwordLetters = 0;
+} 
+
+var getSymbol = confirm("Would you like to use special characters?");
+if (getSymbol) {
+    passwordLetters = passwordLetters.concat(6)
+}
+else {
+    passwordLetters = 0;
+};
 
 
 
+
+console.log(generatePassword);
+console.log(passwordLetters);
+console.log(finalPass);
+
+passwordLetters = [];
+finalPass = [];
+
+ 
 
 var symbols = ["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "-", "=", "|", ";", ":", "(", ")", "{", "}", "[", "]", ",", ".", "<", ">", "/", "?"]
 
@@ -32,18 +66,4 @@ function chooseNumber() {
 }
 function chooseSpecialChar() {  
   return symbols[Math.floor(Math.random() * symbols.length)]
-}
-
-
-
- console.log(chooseSpecialChar());
-
-
-// Add event listener to generate button
-
-
-
-
-
-
-// }
+};
