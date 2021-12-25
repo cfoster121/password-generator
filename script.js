@@ -2,44 +2,54 @@
 
 var generateBtn = document.querySelector("#generate");
 
-document.getElementById("generate").addEventListener("click", generatePassword());
-
-//   var passwordText = document.querySelector("#password");
-
-//   passwordText.value = password;
-
-// }
-
-// Add event listener to generate button//
+generateBtn.addEventListener("click", generatePassword());
 
 // // Write password to the #password input
-// function writePassword() {
-var password = generatePassword()
+
+function writePassword() {
+
+  passwordText.value = password;
+  var password = generatePassword()
+
+}
+
+// Add event listener to generate button//
+var passwordText = document.querySelector("#password");
+
+
+
+var passwordLetters = [];
+
+var passwordText = [];
+  
+for(var i=0; i<chooseNumber; i++) {
+  passwordText = passwordText + passwordLetters[Math.floor((Math.random() * passwordLetters.length))];
+  
+
+var chooseNumber = prompt("How many characters would you like your password to be? (Must be between 8 and 156)");
+if (chooseNumber > 7 && chooseNumber < 156) {
+    passwordLetters = passwordLetters.concat(chooseNumber)
+}
+
 
 function generatePassword() {
     var getLowerCase = confirm("Would you like to use lower case letters?");
 if (getLowerCase) {
-    passwordLetters = passwordLetters.concat(4)
+    passwordLetters = passwordLetters.concat(chooseLowerCase)
 }
-else {
-    passwordLetters = 0;
-} 
+
 
 var getUpperCase = confirm("Would you like to use upper case letters?");
 if (getUpperCase){
-    passwordLetters = passwordLetters.concat(5)
+    passwordLetters = passwordLetters.concat(chooseUpperCase)
 }
-else {
-    passwordLetters = 0;
-} 
+ 
 
 var getSymbol = confirm("Would you like to use special characters?");
 if (getSymbol) {
-    passwordLetters = passwordLetters.concat(6)
+    passwordLetters = passwordLetters.concat(chooseSymbol)
 }
-else {
-    passwordLetters = 0;
-};
+
 
 
 
@@ -48,8 +58,6 @@ console.log(generatePassword);
 console.log(passwordLetters);
 console.log(finalPass);
 
-passwordLetters = [];
-finalPass = [];
 
  
 
@@ -57,13 +65,14 @@ var symbols = ["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", 
 
 function chooseLowerCase() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97)
-}
+};
 function chooseUpperCase() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 65)
-}
+};
 function chooseNumber() {
   return String.fromCharCode(Math.floor(Math.random() * 10) + 48)
-}
-function chooseSpecialChar() {  
+};
+function chooseSymbol() {  
   return symbols[Math.floor(Math.random() * symbols.length)]
 };
+
