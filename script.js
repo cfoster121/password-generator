@@ -1,65 +1,85 @@
 // Assignment Code
-
 var generateBtn = document.querySelector("#generate");
 
-generateBtn.addEventListener("click", generatePassword());
+// Add event listener to generate button//
+generateBtn.addEventListener("click", writePassword);
 
 // // Write password to the #password input
-
 function writePassword() {
 
-  passwordText.value = password;
   var password = generatePassword()
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password.join('');
 
 }
 
-// Add event listener to generate button//
-var passwordText = document.querySelector("#password");
+
+//////////////////////////////////////////////////////////////////
 
 
 
-var passwordLetters = [];
-
-var passwordText = [];
-  
-for(var i=0; i<chooseNumber; i++) {
-  passwordText = passwordText + passwordLetters[Math.floor((Math.random() * passwordLetters.length))];
-  
-
-var chooseNumber = prompt("How many characters would you like your password to be? (Must be between 8 and 156)");
-if (chooseNumber > 7 && chooseNumber < 156) {
-    passwordLetters = passwordLetters.concat(chooseNumber)
-}
 
 
 function generatePassword() {
-    var getLowerCase = confirm("Would you like to use lower case letters?");
-if (getLowerCase) {
-    passwordLetters = passwordLetters.concat(chooseLowerCase)
-}
+
+  const pwd = [];
+
+  var chooseLength = prompt("How many characters would you like your password to be? (Must be between 8 and 128)");
+  if (chooseLength < 7 || chooseLength > 128) {
+    alert("Try again - password must be between 8 and 128 characters");
+    return
+  }
+
+  var getLowerCase = confirm("Would you like to use lower case letters?");
+  var getUpperCase = confirm("Would you like to use upper case letters?");
+  var getSymbol = confirm("Would you like to use special characters?");
+  var getNumber = confirm("Would you like to use numbers?");
+
+  for (i = 0; i < chooseLength; i++) {
+
+    if (getLowerCase) {
+      pwd.push(chooseLowerCase())
+    }
+
+    if (pwd.length == chooseLength) {
+      return pwd
+    }
+
+    if (getUpperCase) {
+      pwd.push(chooseUpperCase())
+    }
+
+    if (pwd.length == chooseLength) {
+      return pwd
+    }
+
+    if (getSymbol) {
+      pwd.push(chooseSymbol())
+    }
+
+    if (pwd.length == chooseLength) {
+      return pwd
+    }
+
+    if (getNumber) {
+      pwd.push(chooseNumber())
+    }
+
+    if (pwd.length == chooseLength) {
+      return pwd
+    }
+
+    console.log(pwd)
+
+  }
 
 
-var getUpperCase = confirm("Would you like to use upper case letters?");
-if (getUpperCase){
-    passwordLetters = passwordLetters.concat(chooseUpperCase)
-}
- 
-
-var getSymbol = confirm("Would you like to use special characters?");
-if (getSymbol) {
-    passwordLetters = passwordLetters.concat(chooseSymbol)
-}
+};
 
 
 
 
-
-console.log(generatePassword);
-console.log(passwordLetters);
-console.log(finalPass);
-
-
- 
 
 var symbols = ["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "-", "=", "|", ";", ":", "(", ")", "{", "}", "[", "]", ",", ".", "<", ">", "/", "?"]
 
@@ -72,7 +92,6 @@ function chooseUpperCase() {
 function chooseNumber() {
   return String.fromCharCode(Math.floor(Math.random() * 10) + 48)
 };
-function chooseSymbol() {  
+function chooseSymbol() {
   return symbols[Math.floor(Math.random() * symbols.length)]
-};
-
+}
