@@ -4,8 +4,8 @@ Client wants to be able to generate a random password for increased security. Pa
 
 
 ## Essential Code
-***images/gifs
-![Gif1] (PWD-GEN.gif)
+
+*![Gif1](PWD-GEN.gif)
 
 
 ### Installing
@@ -33,7 +33,7 @@ Client wants to be able to generate a random password for increased security. Pa
 
 ## Authors
 
-* **YOUR NAME** 
+* **Courtney Foster** 
 
 - [Link to Portfolio Site](https://cfoster121.github.io/homework2/)
 - [Link to Github](https://github.com/cfoster121)
