@@ -23,7 +23,7 @@ function generatePassword() {
 
   //Prompts user to choose password b/w 8-128 characters, if outside of range prompt alerts and closes, user will have to click button again to start over//
   var chooseLength = prompt("How many characters would you like your password to be? (Must be between 8 and 128)");
-  if (chooseLength < 7 || chooseLength > 128) {
+  if (chooseLength < 8 || chooseLength > 128) {
     alert("Try again - password must be between 8 and 128 characters");
     return
   }
